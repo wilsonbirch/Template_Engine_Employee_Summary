@@ -9,6 +9,68 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
+const { getMaxListeners, listenerCount } = require("process");
+
+possibleNumberOfEmployeesArray = [1,2,3,4];
+
+const questions = [ {
+    type: `list`,
+    name: `numberOfInterns`,
+    message: `How many Interns are a part of your team?`,
+    choices: possibleNumberOfEmployeesArray
+}, {
+    type: `list`,
+    name: `numberOfEngineers`,
+    message: `How many Engineers are a part of your team?`,
+    choices: possibleNumberOfEmployeesArray
+}]
+
+const managerInfo = [{
+    type: `string`,
+    name: `name`,
+    message: `Manager name?`
+}, {
+    type: `string`,
+    name: `id`,
+    message: `Manager id?`
+}, {
+    type: `string`,
+    name: `email`,
+    message: `Manager email?`
+}, {
+    type: `string`,
+    name: `officeNumber`,
+    message: `Manager office number?`
+}]
+
+
+function teamBuilder(){
+
+    inquirer
+     .prompt(questions)
+
+     .then(a => {
+        let totalmembers = 1 + a.numberOfInterns + a.numberOfEngineers;
+        let m = 1;
+        let i = a.numberOfInterns;
+        let e = a.numberOfEngineers;
+        
+        inquirer
+            .prompt(managerInfo)
+
+            .then(b=>{
+
+        });
+        
+         
+
+});
+
+}
+
+teamBuilder();
+
+
 
 
 // Write code to use inquirer to gather information about the development team members,
