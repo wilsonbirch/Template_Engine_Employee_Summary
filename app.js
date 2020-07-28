@@ -300,68 +300,99 @@ function teamBuilder(){
 
      .then(a => {
 
-        //let totalmembers = 1 + a.numberOfInterns + a.numberOfEngineers;
-        //let m = 1;
         let i = a.numberOfInterns;
         let e = a.numberOfEngineers;
-        let manager = new Manager(a.managerName, `Manager`, 1, a.managerEmail, a.managerOfficeNumber);
+        let manager = new Manager(a.managerName, 1, a.managerEmail, a.managerOfficeNumber);
         
-        if (i===1){
+        if (e===1){
         inquirer
-            .prompt(oneIntern)
+            .prompt(oneEngineer)
 
             .then(b=>{
 
-                let intern1 = new Intern (b.internName, `Intern`, 2, b.internEmail, b.internSchool);
+                let engineer1 = new Engineer (b.engineerName, 2, b.engineerEmail, b.engineerGithub);
+                
 
-                if (e===1){
+                if (i===1){
                     inquirer
-                        .prompt(oneEngineer)
+                        .prompt(oneIntern)
             
                         .then(c=>{
 
-                            let engineer1 = new Engineer (c.engineerName, `Engineer`, 3, c.engineerEmail, engineerGithub);
+                            let intern1 = new Intern (c.internName, 3, c.internEmail, c.internSchool);
+                            let employees = [manager, intern1, engineer1];
+                            fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                if (err){
+                                    return console.log(`err`);
+                                }
+
+                                console.log(`Team has been successfully generated!`)
+                            });
             
                     });
                 } 
 
-                if (e===2){
+                if (i===2){
                     inquirer
-                        .prompt(twoEngineers)
+                        .prompt(twoInterns)
             
                         .then(c=>{
 
-                            let engineer1 = new Engineer (c.firstEngineerName, `Engineer`, 3, c.firstEngineerEmail, firstEngineerGithub);
-                            let engineer2 = new Engineer (c.secondEngineerName, `Engineer`, 3, c.secondEngineerEmail, secondEngineerGithub);
+                            let intern1 = new Intern (c.firstInternName, 3, c.firstInternEmail, c.firstInternSchool);
+                            let intern2 = new Intern (c.secondInternName, 4, c.secondInternEmail, c.secondInternSchool);
+                            let employees = [manager, intern1, intern2, engineer1];
+                            fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                if (err){
+                                    return console.log(`err`);
+                                }
+                                console.log(`Team has been successfully generated!`)
+                            });
+                            
             
                     });
                 } 
 
-                if (e===3){
+                if (i===3){
 
                     inquirer
-                        .prompt(threeEngineers)
+                        .prompt(threeInterns)
             
                         .then(c=>{
 
-                            let engineer1 = new Engineer (c.firstEngineerName, `Engineer`, 3, c.firstEngineerEmail, firstEngineerGithub);
-                            let engineer2 = new Engineer (c.secondEngineerName, `Engineer`, 3, c.secondEngineerEmail, secondEngineerGithub);
-                            let engineer3 = new Engineer (c.thirdEngineerName, `Engineer`, 3, c.thirdEngineerEmail, thirdEngineerGithub);
+                            let intern1 = new Intern (c.firstInternName,  3, c.firstInternEmail, c.firstInternSchool);
+                            let intern2 = new Intern (c.secondInternName,  4, c.secondInternEmail, c.secondInternSchool);
+                            let intern3 = new Intern (c.thirdInternName,  5, c.thirdInternEmail, c.thirdInternSchool);
+                            let employees = [manager, intern1, intern2, intern3, engineer1];
+                            fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                if (err){
+                                    return console.log(`err`);
+                                }
+                                console.log(`Team has been successfully generated!`)
+                            });
             
                     });
                 } 
 
-                if (e===4){
+                if (i===4){
 
                     inquirer
-                        .prompt(fourEngineers)
+                        .prompt(fourInterns)
             
                         .then(c=>{
 
-                            let engineer1 = new Engineer (c.firstEngineerName, `Engineer`, 3, c.firstEngineerEmail, firstEngineerGithub);
-                            let engineer2 = new Engineer (c.secondEngineerName, `Engineer`, 3, c.secondEngineerEmail, secondEngineerGithub);
-                            let engineer3 = new Engineer (c.thirdEngineerName, `Engineer`, 3, c.thirdEngineerEmail, thirdEngineerGithub);
-                            let engineer4 = new Engineer (c.fourthEngineerName, `Engineer`, 3, c.fourthEngineerEmail, fourthEngineerGithub);
+                            let intern1 = new Intern (c.firstInternName,  3, c.firstInternEmail, c.firstInternSchool);
+                            let intern2 = new Intern (c.secondInternName,  4, c.secondInternEmail, c.secondInternSchool);
+                            let intern3 = new Intern (c.thirdInternName,  5, c.thirdInternEmail, c.thirdInternSchool);
+                            let intern4 = new Intern (c.fourthInternName,  6, c.fourthInternEmail, c.fourthInternSchool);
+                            let employees = [manager, intern1, intern2, intern3, intern4, engineer1];
+                            fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                if (err){
+                                    return console.log(`err`);
+                                }
+                                console.log(`Team has been successfully generated!`)
+                            });
+
+
             
                     });
                 } 
@@ -371,42 +402,295 @@ function teamBuilder(){
         } 
 
 
-        if (i===2){
+        if (e===2){
             inquirer
-                .prompt(twoInterns)
+                .prompt(twoEngineers)
     
                 .then(b=>{
 
-                    let intern1 = new Intern (b.firstInternName, `Intern`, 2, b.firstInternEmail, b.firstInternSchool);
-                    let intern2 = new Intern (b.secondInternName, `Intern`, 3, b.secondInternEmail, b.secondInternSchool);
+                    let engineer1 = new Engineer (b.firstEngineerName, 2, b.firstEngineerEmail, b.firstEngineerGithub);
+                    let engineer2 = new Engineer (b.secondEngineerName, 3, b.secondEngineerEmail, b.secondEngineerGithub);
+
+                    if (i===1){
+                        inquirer
+                            .prompt(oneIntern)
+                
+                            .then(c=>{
+    
+                                let intern1 = new Intern (c.internName, 4, c.internEmail, c.internSchool);
+                                let employees = [manager, intern1, engineer1, engineer2];
+                                fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                    if (err){
+                                        return console.log(`err`);
+                                    }
+    
+                                    console.log(`Team has been successfully generated!`)
+                                });
+                
+                        });
+                    } 
+    
+                    if (i===2){
+                        inquirer
+                            .prompt(twoInterns)
+                
+                            .then(c=>{
+    
+                                let intern1 = new Intern (c.firstInternName, 4, c.firstInternEmail, c.firstInternSchool);
+                                let intern2 = new Intern (c.secondInternName, 5, c.secondInternEmail, c.secondInternSchool);
+                                let employees = [manager, intern1, intern2, engineer1, engineer2];
+                                fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                    if (err){
+                                        return console.log(`err`);
+                                    }
+                                    console.log(`Team has been successfully generated!`)
+                                });
+                                
+                
+                        });
+                    } 
+    
+                    if (i===3){
+    
+                        inquirer
+                            .prompt(threeInterns)
+                
+                            .then(c=>{
+    
+                                let intern1 = new Intern (c.firstInternName,  4, c.firstInternEmail, c.firstInternSchool);
+                                let intern2 = new Intern (c.secondInternName,  5, c.secondInternEmail, c.secondInternSchool);
+                                let intern3 = new Intern (c.thirdInternName,  6, c.thirdInternEmail, c.thirdInternSchool);
+                                let employees = [manager, intern1, intern2, intern3, engineer1, engineer2];
+                                fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                    if (err){
+                                        return console.log(`err`);
+                                    }
+                                    console.log(`Team has been successfully generated!`)
+                                });
+                
+                        });
+                    } 
+    
+                    if (i===4){
+    
+                        inquirer
+                            .prompt(fourInterns)
+                
+                            .then(c=>{
+    
+                                let intern1 = new Intern (c.firstInternName,  3, c.firstInternEmail, c.firstInternSchool);
+                                let intern2 = new Intern (c.secondInternName,  4, c.secondInternEmail, c.secondInternSchool);
+                                let intern3 = new Intern (c.thirdInternName,  5, c.thirdInternEmail, c.thirdInternSchool);
+                                let intern4 = new Intern (c.fourthInternName,  6, c.fourthInternEmail, c.fourthInternSchool);
+                                let employees = [manager, intern1, intern2, intern3, intern4, engineer1, engineer2];
+                                fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                    if (err){
+                                        return console.log(`err`);
+                                    }
+                                    console.log(`Team has been successfully generated!`)
+                                });
+    
+    
+                
+                        });
+                    } 
+
     
             });
         } 
 
-        if (i===3){
+        if (e===3){
             inquirer
-                .prompt(threeInterns)
+                .prompt(threeEngineers)
     
                 .then(b=>{
 
-                    let intern1 = new Intern (b.firstInternName, `Intern`, 2, b.firstInternEmail, b.firstInternSchool);
-                    let intern2 = new Intern (b.secondInternName, `Intern`, 3, b.secondInternEmail, b.secondInternSchool);
-                    let intern3 = new Intern (b.thirdInternName, `Intern`, 4, b.thirdInternEmail, b.thirdInternSchool);
+                    let engineer1 = new Engineer (b.firstEngineerName, 2, b.firstEngineerEmail, b.firstEngineerGithub);
+                    let engineer2 = new Engineer (b.secondEngineerName, 3, b.secondEngineerEmail, b.secondEngineerGithub);
+                    let engineer3 = new Engineer (b.thirdEngineerName, 4, b.thirdEngineerEmail, b.thirdEngineerGithub);
+
+                    if (i===1){
+                        inquirer
+                            .prompt(oneIntern)
+                
+                            .then(c=>{
+    
+                                let intern1 = new Intern (c.internName, 5, c.internEmail, c.internSchool);
+                                let employees = [manager, intern1, engineer1, engineer2, engineer3];
+                                fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                    if (err){
+                                        return console.log(`err`);
+                                    }
+    
+                                    console.log(`Team has been successfully generated!`)
+                                });
+                
+                        });
+                    } 
+    
+                    if (i===2){
+                        inquirer
+                            .prompt(twoInterns)
+                
+                            .then(c=>{
+    
+                                let intern1 = new Intern (c.firstInternName, 5, c.firstInternEmail, c.firstInternSchool);
+                                let intern2 = new Intern (c.secondInternName, 6, c.secondInternEmail, c.secondInternSchool);
+                                let employees = [manager, intern1, intern2, engineer1, engineer2, engineer3];
+                                fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                    if (err){
+                                        return console.log(`err`);
+                                    }
+                                    console.log(`Team has been successfully generated!`)
+                                });
+                                
+                
+                        });
+                    } 
+    
+                    if (i===3){
+    
+                        inquirer
+                            .prompt(threeInterns)
+                
+                            .then(c=>{
+    
+                                let intern1 = new Intern (c.firstInternName,  5, c.firstInternEmail, c.firstInternSchool);
+                                let intern2 = new Intern (c.secondInternName,  6, c.secondInternEmail, c.secondInternSchool);
+                                let intern3 = new Intern (c.thirdInternName,  7, c.thirdInternEmail, c.thirdInternSchool);
+                                let employees = [manager, intern1, intern2, intern3, engineer1, engineer2, engineer3];
+                                fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                    if (err){
+                                        return console.log(`err`);
+                                    }
+                                    console.log(`Team has been successfully generated!`)
+                                });
+                
+                        });
+                    } 
+    
+                    if (i===4){
+    
+                        inquirer
+                            .prompt(fourInterns)
+                
+                            .then(c=>{
+    
+                                let intern1 = new Intern (c.firstInternName,  5, c.firstInternEmail, c.firstInternSchool);
+                                let intern2 = new Intern (c.secondInternName,  6, c.secondInternEmail, c.secondInternSchool);
+                                let intern3 = new Intern (c.thirdInternName,  7, c.thirdInternEmail, c.thirdInternSchool);
+                                let intern4 = new Intern (c.fourthInternName,  8, c.fourthInternEmail, c.fourthInternSchool);
+                                let employees = [manager, intern1, intern2, intern3, intern4, engineer1, engineer2, engineer3];
+                                fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                    if (err){
+                                        return console.log(`err`);
+                                    }
+                                    console.log(`Team has been successfully generated!`)
+                                });
+    
+    
+                
+                        });
+                    } 
 
     
             });
         } 
 
-        if (i===4){
+        if (e===4){
             inquirer
-                .prompt(fourInterns)
+                .prompt(fourEngineers)
     
                 .then(b=>{
 
-                    let intern1 = new Intern (b.firstInternName, `Intern`, 2, b.firstInternEmail, b.firstInternSchool);
-                    let intern2 = new Intern (b.secondInternName, `Intern`, 3, b.secondInternEmail, b.secondInternSchool);
-                    let intern3 = new Intern (b.thirdInternName, `Intern`, 4, b.thirdInternEmail, b.thirdInternSchool);
-                    let intern4 = new Intern (b.fourthInternName, `Intern`, 4, b.fourthInternEmail, b.fourthInternSchool);
+                    let engineer1 = new Engineer (b.firstEngineerName, 2, b.firstEngineerEmail, b.firstEngineerGithub);
+                    let engineer2 = new Engineer (b.secondEngineerName, 3, b.secondEngineerEmail, b.secondEngineerGithub);
+                    let engineer3 = new Engineer (b.thirdEngineerName, 4, b.thirdEngineerEmail, b.thirdEngineerGithub);
+                    let engineer4 = new Engineer (b.fourthEngineerName, 5, b.fourthEngineerEmail, b.fourthEngineerGithub);
+
+                    if (i===1){
+                        inquirer
+                            .prompt(oneIntern)
+                
+                            .then(c=>{
+    
+                                let intern1 = new Intern (c.internName, 6, c.internEmail, c.internSchool);
+                                let employees = [manager, intern1, engineer1, engineer2, engineer3, engineer4];
+                                fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                    if (err){
+                                        return console.log(`err`);
+                                    }
+    
+                                    console.log(`Team has been successfully generated!`)
+                                });
+                
+                        });
+                    } 
+    
+                    if (i===2){
+                        inquirer
+                            .prompt(twoInterns)
+                
+                            .then(c=>{
+    
+                                let intern1 = new Intern (c.firstInternName, 6, c.firstInternEmail, c.firstInternSchool);
+                                let intern2 = new Intern (c.secondInternName, 7, c.secondInternEmail, c.secondInternSchool);
+                                let employees = [manager, intern1, intern2, engineer1, engineer2, engineer3, engineer4];
+                                fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                    if (err){
+                                        return console.log(`err`);
+                                    }
+                                    console.log(`Team has been successfully generated!`)
+                                });
+                                
+                
+                        });
+                    } 
+    
+                    if (i===3){
+    
+                        inquirer
+                            .prompt(threeInterns)
+                
+                            .then(c=>{
+    
+                                let intern1 = new Intern (c.firstInternName,  6, c.firstInternEmail, c.firstInternSchool);
+                                let intern2 = new Intern (c.secondInternName,  7, c.secondInternEmail, c.secondInternSchool);
+                                let intern3 = new Intern (c.thirdInternName,  8, c.thirdInternEmail, c.thirdInternSchool);
+                                let employees = [manager, intern1, intern2, intern3, engineer1, engineer2, engineer3, engineer4];
+                                fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                    if (err){
+                                        return console.log(`err`);
+                                    }
+                                    console.log(`Team has been successfully generated!`)
+                                });
+                
+                        });
+                    } 
+    
+                    if (i===4){
+    
+                        inquirer
+                            .prompt(fourInterns)
+                
+                            .then(c=>{
+    
+                                let intern1 = new Intern (c.firstInternName,  6, c.firstInternEmail, c.firstInternSchool);
+                                let intern2 = new Intern (c.secondInternName,  7, c.secondInternEmail, c.secondInternSchool);
+                                let intern3 = new Intern (c.thirdInternName,  8, c.thirdInternEmail, c.thirdInternSchool);
+                                let intern4 = new Intern (c.fourthInternName,  9, c.fourthInternEmail, c.fourthInternSchool);
+                                let employees = [manager, intern1, intern2, intern3, intern4, engineer1, engineer2, engineer3, engineer4];
+                                fs.writeFile(__dirname + `/output/team.html`, render(employees), function(err) {
+                                    if (err){
+                                        return console.log(`err`);
+                                    }
+                                    console.log(`Team has been successfully generated!`)
+                                });
+    
+    
+                
+                        });
+                    } 
     
             });
         } 
@@ -418,31 +702,3 @@ function teamBuilder(){
 
 
 teamBuilder();
-
-
-
-
-
-
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
-
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
-
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
-
-// HINT: each employee type (manager, engineer, or intern) has slightly different
-// information; write your code to ask different questions via inquirer depending on
-// employee type.
-
-// HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
-// and Intern classes should all extend from a class named Employee; see the directions
-// for further information. Be sure to test out each class and verify it generates an
-// object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! ```
