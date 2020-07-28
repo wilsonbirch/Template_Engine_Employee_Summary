@@ -1,6 +1,10 @@
 # Template Engine Employee Summary
 Homework assignment #8 for CU coding bootcamp
 
+* Below is an example of the generated team.html page:
+![screenshot of the generated webpage](assets/sc.png)
+
+
 # Unit 10 OOP Homework: Template Engine - Employee Summary
 
 One of the most important aspects of programming is writing code that is readable, reliable, and maintainable. Oftentimes, *how* we design our code is just as important as the code itself. In this homework assignment, your challenge is to build a Node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person. Since testing is a key piece in making code maintainable, you will also be ensuring that all unit tests pass.
@@ -22,8 +26,6 @@ How do you deliver this? Here are some guidelines:
 
 * Your app will run as a Node CLI to gather information about each employee.
 
-* Below is an example of the generated team.html page:
-![screenshot of the generated webpage](assets/sc.png)
 
 In the `Develop` folder, there is a `package.json`, so make sure to `npm install`.
 
