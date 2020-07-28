@@ -22,7 +22,8 @@ How do you deliver this? Here are some guidelines:
 
 * Your app will run as a Node CLI to gather information about each employee.
 
-* Below is an example of the generated team.html page.
+* Below is an example of the generated team.html page:
+![screenshot of the generated webpage](/assets/Screenshot (91).png)
 
 In the `Develop` folder, there is a `package.json`, so make sure to `npm install`.
 
